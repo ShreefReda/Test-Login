@@ -1,0 +1,39 @@
+<ion-header>
+
+    <ion-navbar>
+       <ion-title>Register Form</ion-title>
+     </ion-navbar>
+   </ion-header>
+   
+   
+   <ion-content>
+     <form [formGroup]="loginForm">
+      <ion-list>
+       <ion-item>
+         <ion-label floating>Email</ion-label>
+         <ion-input matInput type="email" formControlName="email"></ion-input>
+       </ion-item>
+       <ion-item *ngIf="loginForm.get('email').hasError('email') && !loginForm.get('email').hasError('required')">
+         <p> Invalid_Email_Address</p>
+        </ion-item>
+        <ion-item *ngIf="loginForm.get('email').hasError('required')">
+        <p>Email_is_required</p>
+      </ion-item>
+   
+       <ion-item>
+         <ion-label floating>Password</ion-label>
+         <ion-input matInput type="password" formControlName="password" ></ion-input>
+       </ion-item>
+       <ion-item *ngIf="loginForm.get('password').hasError('required')">
+         <p>The_password_is_required</p>
+       </ion-item>
+     
+     </ion-list>
+   
+     <div padding>
+       <button ion-button color="primary" block (click)="sign_in()" 
+       [disabled]=loginForm.invalid>Sign In</button>
+     </div>
+    </form>
+   </ion-content>
+   

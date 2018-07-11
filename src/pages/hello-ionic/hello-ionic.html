@@ -1,0 +1,29 @@
+<ion-header>
+
+ <ion-navbar>
+    <ion-title>Register Form</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="loginForm">
+   <ion-list>
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input matInput type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input matInput type="password" formControlName="password" ></ion-input>
+    </ion-item>
+  
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="primary" block (click)="sign_in()" 
+    disabled>Sign In</button>
+  </div>
+ </form>
+</ion-content>
